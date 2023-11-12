@@ -1,0 +1,58 @@
+<div class="content_site">
+    <div class="navigation_bar">
+      <div class="contenedor">
+        <div class="navigation_bar_logo_name">
+          <img src="assets/logo.png" alt="Logo" />
+          <p>Alejandro Jaime</p>
+        </div>
+  
+        <nav class="nav">
+          <button style="cursor: pointer" (click)="toggleDarkMode()">
+            <i *ngIf="!isDarkTheme" class="bx bxs-moon"></i>
+            <i *ngIf="isDarkTheme" class="bx bxs-sun"></i>
+          </button>
+        </nav>
+      </div>
+    </div>
+  
+    <div class="content_site_main contenedor">
+      <div class="hero_section" style="display: none">
+        <h1 class="hero_section_h1">
+          <b>Lorem ipsum dolor sit amet consectetur</b> adipisicing elit. Alias
+          nesciunt in eligendi esse, rem, repellendus quia culpa, velit possimus
+          ducimus beatae dicta animi minima et a amet. Quidem, aut delectus.
+        </h1>
+      </div>
+  
+      <div class="chatbot_section" style="margin: 3rem 0">
+        <div class="chatbot">
+          <div class="chatbot_display">
+            <div class="chatbot_display_version_ctrl">
+              <i class="bx bx-conversation" style="color: #4d4d4d"></i>
+              <p style="margin: 0; pointer-events: none">Chatbot</p>
+            </div>
+            <div *ngFor="let sentMsg of sentMessage; let isFirst = first" [ngClass]="{'chatbot_sent_msg': true, 'first_message': isFirst}">
+              <i class='bx bxs-user-circle'></i>
+              <div class="chatbot_sent_msg-txt">
+                {{sentMsg}}
+              </div>
+            </div>
+          </div>
+          <div class="chatbot_msg_input">
+            <div class="chatbot_msg_input-field">
+              <input type="text" placeholder="Escribe un mensaje..." [(ngModel)]="message" />
+            </div>
+            <div class="chatbot_msg_input-btn">
+              <button (click)="sendMessage()">Enviar</button>
+            </div>
+          </div>
+          <div class="chatbot_options">
+            <button (click)="resetMessage()"><i class="bx bx-reset"></i>Reintentar</button>
+            <button (click)="undoMessage()"><i class="bx bx-undo"></i>Deshacer</button>
+            <button (click)="clearMessage()"><i class="bx bxs-trash"></i>Borrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
